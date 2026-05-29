@@ -1,0 +1,13 @@
+#LC 575. Distribute Candies
+#CODE:
+
+class Solution:
+    def distributeCandies(self, candyType: List[int]) -> int:
+        n = len(candyType)//2
+        if len(set(candyType)) <= n:
+            return len(set(candyType))
+        else:
+            req = len(set(candyType)) - n
+            return len(set(candyType)) - req
+
+        

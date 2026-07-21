@@ -1,0 +1,12 @@
+#LC 238
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        res = [1] * len(nums)
+        for i in range(1,len(nums)):
+            res[i] = res[i-1] * nums[i-1]
+        j=len(nums) - 2
+        suffix = 1
+        for j in range(len(nums)-2, -1, -1):
+            suffix = suffix * nums[j+1]
+            res[j] *= suffix
+        return res
